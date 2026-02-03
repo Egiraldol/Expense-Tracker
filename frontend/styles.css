@@ -1,0 +1,110 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h3, h4 {
+    text-align: center;
+    color: #333;
+}
+
+#expense-form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    width: 50%;
+    padding: 20px;
+    margin: auto;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: rgb(125, 125, 198);
+    color: white;
+    padding: 14px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: rgb(145, 145, 198);
+}
+
+#expenses-list {
+    width: 50%;
+    background-color: #f2f2f2;
+    margin: 20px auto;
+}
+
+.expense-item {
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.expense-info h5 {
+    margin: 0 0 8px 0;
+    color: rgb(125, 125, 198);
+}
+
+.expense-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.expense-info small {
+    color: #999;
+}
+
+.expense-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit, .btn-delete {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #da190b;
+}
+
+#total-amount {
+    font-weight: bold;
+    color: rgb(125, 125, 198);
+    font-size: 1.5em;
+}
+
+#total-amount {
+    font-weight: bold;
+    color: rgb(125, 125, 198);
+    font-size: 1.2em;
+}

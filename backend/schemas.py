@@ -5,7 +5,7 @@ from typing import Optional, Literal
 
 class ExpenseBase(BaseModel):
     amount: float
-    category: Literal["Comida", "Transporte", "Entretenimiento", "Servicios", "Salud", "Compras", "Otros"]
+    category: Literal["Food", "Transport", "Entertainment", "Services", "Health", "Shopping", "Others"]
     description: Optional[str] = None
     date: date
 
