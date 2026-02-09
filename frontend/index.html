@@ -9,8 +9,8 @@
         <h3>Expense Tracker</h3>
 
         <div>
-            <h4>New expense</h4>
             <form id="expense-form">
+                <h4>New expense</h4>
                 <input type="number" id="amount" name="amount" placeholder="amount" required>
                 <select type="text" id="category" name="category" required>
                     <option value="" disabled selected>Select category</option>
@@ -46,7 +46,9 @@
         </div>
 
         <div>
-            <h4 id="total-amount">Total expenses: <span id="total-amount">$0</span></h4>
+            <h4>Total expenses: 
+                <span id="total-amount">$0</span>
+            </h4>
         </div>
 
         <script src="./app.js"></script>
