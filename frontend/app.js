@@ -20,6 +20,20 @@ expensesList.addEventListener('click', function(e) {
     }
 });
 
+expensesList.addEventListener('submit', async function (e) {
+    if (e.target.classList.contains('edit-form')) {
+        e.preventDefault();
+        await handleUpdate(e.target);
+    }
+});
+
+expensesList.addEventListener('click', async function (e) {
+    if (e.target.classList.contains('btn-cancel')) {
+        const expenses = await getExpenses();
+        renderExpenses(expenses);
+    }
+});
+
 async function createExpense(expenseData) {
     try {
         const response = await fetch(`${API_URL}/expenses/`, {
@@ -58,6 +72,23 @@ async function getExpenses() {
     } catch (error) {
         console.error('Error:', error);
         return [];
+    }
+}
+
+async function getExpense(expenseId) {
+    try {
+        const response = await fetch(`${API_URL}/expenses/${expenseId}`);
+
+        if (!response.ok) {
+            throw new Error("Error fetching expense");
+        }
+
+        const expense = await response.json();
+        return expense;
+    }
+    catch(error) {
+        console.error('Error:', error);
+        return null;
     }
 }
 
@@ -153,6 +184,76 @@ async function handleDelete(expenseId) {
     const success = await deleteExpense(expenseId);
 
     if (success){
+        const expenses = await getExpenses();
+        renderExpenses(expenses);
+        updateTotal();
+    }
+}
+
+async function handleEdit(expenseId) {
+    const expense = await getExpense(expenseId);
+
+    if (!expense) return;
+
+    renderEditForm(expense);
+}
+
+function renderEditForm(expense) {
+    const card = document.querySelector(
+        `.btn-edit[data-id="${expense.id}"]`
+    ).closest('.expense-item');
+
+    card.innerHTML = `
+        <form class="edit-form" data-id="${expense.id}">
+            <input type="number" name="amount" value="${expense.amount}" required>
+
+            <select name="category" required>
+                ${renderCategoryOptions(expense.category)}
+            </select>
+
+            <textarea name="description">${expense.description || ''}</textarea>
+
+            <input type="date" name="date" value="${expense.date}" required>
+
+            <button type="submit">Save</button>
+            <button type="button" class="btn-cancel">Cancel</button>
+        </form>
+    `;
+}
+
+function renderCategoryOptions(selected) {
+    const categories = [
+        'Food',
+        'Transport',
+        'Entertainment',
+        'Services',
+        'Health',
+        'Shopping',
+        'Others'
+    ];
+
+    return categories
+        .map(cat =>
+            `<option value="${cat}" ${cat === selected ? 'selected' : ''}>
+                ${cat}
+            </option>`
+        )
+        .join('');
+}
+
+async function handleUpdate(form) {
+    const expenseId = form.dataset.id;
+
+    const updatedData = {
+        amount: parseFloat(form.amount.value),
+        category: form.category.value,
+        description: form.description.value,
+        date: form.date.value
+    };
+
+    const updatedExpense = await updateExpense(expenseId, updatedData);
+
+    if (updatedExpense) {
         const expenses = await getExpenses();
         renderExpenses(expenses);
         updateTotal();
