@@ -1,6 +1,17 @@
-function ExpenseList() {
+import ExpenseItem from "./ExpenseItem";
+
+function ExpenseList({ expenses }) {
+    if (expenses.length === 0) {
+        return <p>No expenses yet</p>;
+    }
+
     return (
-        <div>Expense List</div>
+        <div>
+            {expenses.map(expense => (
+                <ExpenseItem key={expense.id} expense={expense} />
+            ))}
+        </div>
+        
     );
 }
 
