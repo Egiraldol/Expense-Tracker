@@ -1,6 +1,6 @@
 import Header from "./Header"
 
-function Layout({ children }) {
+export default function Layout({ children }) {
     return (
         <>
             <Header />
@@ -10,5 +10,3 @@ function Layout({ children }) {
         </>
     );
 }
-
-export default Layout;

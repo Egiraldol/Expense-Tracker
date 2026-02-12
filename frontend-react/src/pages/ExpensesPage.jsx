@@ -3,7 +3,7 @@ import ExpenseForm from "../components/expenses/ExpenseForm";
 import ExpenseList from "../components/expenses/ExpensesList";
 import { getExpenses } from "../services/expenses.api";
 
-function ExpensesPage() {
+export default function ExpensesPage() {
     const [expenses, setExpenses] = useState([]);
 
     useEffect(() => {
@@ -17,5 +17,3 @@ function ExpensesPage() {
         </>     
     );
 }
-
-export default ExpensesPage;
