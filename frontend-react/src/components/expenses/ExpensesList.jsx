@@ -1,6 +1,6 @@
 import ExpenseItem from "./ExpenseItem";
 
-function ExpenseList({ expenses }) {
+export default function ExpenseList({ expenses }) {
     if (expenses.length === 0) {
         return <p>No expenses yet</p>;
     }
@@ -14,5 +14,3 @@ function ExpenseList({ expenses }) {
         
     );
 }
-
-export default ExpenseList;

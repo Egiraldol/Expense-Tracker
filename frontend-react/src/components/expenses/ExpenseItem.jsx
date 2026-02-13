@@ -1,4 +1,4 @@
-function ExpenseItem({ expense }) {
+export default function ExpenseItem({ expense }) {
     return (
         <div>
             <p>{expense.amount}</p>
@@ -8,5 +8,3 @@ function ExpenseItem({ expense }) {
         </div>
     );
 }
-
-export default ExpenseItem;
