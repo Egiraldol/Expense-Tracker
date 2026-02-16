@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ExpenseForm from "../components/expenses/ExpenseForm";
 import ExpenseList from "../components/expenses/ExpensesList";
-import { createExpense, getExpenses } from "../services/expenses.api";
+import { createExpense, deleteExpense, getExpenses } from "../services/expenses.api";
 
 export default function ExpensesPage() {
     const [expenses, setExpenses] = useState([]);
@@ -11,6 +11,16 @@ export default function ExpensesPage() {
         setExpenses(prev => [...prev, newExpense]);
     }
 
+    async function handleDeleteExpense(id) {
+        try {
+            await deleteExpense(id);
+            setExpenses((prev) => prev.filter((expense) => expense.id !== id));
+        }
+        catch (error) {
+            console.error(error);
+        }
+    }
+
     useEffect(() => {
         getExpenses().then(setExpenses)
     }, []);
@@ -18,7 +28,7 @@ export default function ExpensesPage() {
     return (
         <>
             <ExpenseForm onAddExpense={handleAddExpense}/>
-            <ExpenseList expenses = {expenses}/>
+            <ExpenseList expenses = {expenses} onDelete = {handleDeleteExpense}/>
         </>     
     );
 }
