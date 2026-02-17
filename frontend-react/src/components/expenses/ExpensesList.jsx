@@ -1,16 +1,26 @@
 import ExpenseItem from "./ExpenseItem";
 
-export default function ExpenseList({ expenses, onDelete }) {
-    if (expenses.length === 0) {
-        return <p>No expenses yet</p>;
-    }
-
+export default function ExpenseList({
+    expenses,
+    editingId,
+    onDelete,
+    onEdit,
+    onCancel,
+    onUpdate
+}) {
     return (
-        <div>
+        <>
             {expenses.map(expense => (
-                <ExpenseItem key={expense.id} expense={expense} onDelete={onDelete}/>
+                <ExpenseItem
+                    key={expense.id}
+                    expense={expense}
+                    isEditing={expense.id === editingId}
+                    onDelete={onDelete}
+                    onEdit={onEdit}
+                    onCancel={onCancel}
+                    onUpdate={onUpdate}
+                />
             ))}
-        </div>
-        
+        </>
     );
 }
