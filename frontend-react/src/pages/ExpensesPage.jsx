@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import ExpenseForm from "../components/expenses/ExpenseForm";
 import ExpenseList from "../components/expenses/ExpensesList";
-import { createExpense, updateExpense, deleteExpense, getExpenses } from "../services/expenses.api";
+import { createExpense, updateExpense, deleteExpense, getExpenses, getTotalExpenses } from "../services/expenses.api";
+import TotalExpenses from "../components/expenses/TotalExpenses";
 
 export default function ExpensesPage() {
     const [expenses, setExpenses] = useState([]);
     const [editingId, setEditingId] = useState(null);
+    const [totalExpenses, setTotalExpenses] = useState(0);
 
     async function handleAddExpense(data) {
         const newExpense = await createExpense(data);
         setExpenses(prev => [...prev, newExpense]);
+
+        await refreshTotal()
     }
 
     async function handleDeleteExpense(id) {
         try {
             await deleteExpense(id);
             setExpenses((prev) => prev.filter((expense) => expense.id !== id));
+
+            await refreshTotal()
         }
         catch (error) {
             console.error(error);
@@ -32,11 +38,17 @@ export default function ExpensesPage() {
             );
 
             setEditingId(null);
+
+            await refreshTotal()
         } catch (error) {
             console.error(error);
         }
     }
 
+    async function refreshTotal() {
+        const data = await getTotalExpenses();
+        setTotalExpenses(data.total);
+    }
 
     function handleEdit(id) {
         setEditingId(id);
@@ -48,7 +60,13 @@ export default function ExpensesPage() {
 
 
     useEffect(() => {
-        getExpenses().then(setExpenses)
+        getExpenses().then(setExpenses);
+        async function fetchTotal() {
+            const data = await getTotalExpenses();
+            console.log("TOTAL RESPONSE:", data);
+            setTotalExpenses(data.total);
+        }
+        fetchTotal();
     }, []);
 
     return (
@@ -62,6 +80,7 @@ export default function ExpensesPage() {
                 onCancel={handleCancel}
                 onUpdate={handleUpdate}
             />
+            <TotalExpenses total={totalExpenses}/>
         </>     
     );
 }
