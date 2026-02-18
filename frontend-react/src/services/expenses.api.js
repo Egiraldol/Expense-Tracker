@@ -40,3 +40,6 @@ export const deleteExpense = (id) =>
     request(`expenses/${id}`, {
         method: "DELETE"
     });
+
+export const getTotalExpenses = () =>
+    request("expenses/total/");
