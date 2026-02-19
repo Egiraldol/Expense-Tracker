@@ -61,9 +61,9 @@ export default function ExpensesPage() {
 
     useEffect(() => {
         getExpenses().then(setExpenses);
+
         async function fetchTotal() {
             const data = await getTotalExpenses();
-            console.log("TOTAL RESPONSE:", data);
             setTotalExpenses(data.total);
         }
         fetchTotal();
