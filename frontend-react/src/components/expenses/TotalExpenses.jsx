@@ -1,3 +1,11 @@
+import "./TotalExpenses.css";
+
 export default function TotalExpenses({ total }) {
-   return <h2>Total: ${total}</h2>;
+   return (
+      <div className="center">
+         <div className="totalExpenses">
+            <h2>Total: ${total}</h2>
+         </div>
+      </div>
+   );
 }
