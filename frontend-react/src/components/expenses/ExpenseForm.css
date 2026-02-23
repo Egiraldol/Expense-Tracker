@@ -1,0 +1,23 @@
+.expenseForm {
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 20%;
+    height: 50%;
+    padding: 12px 12px;
+    margin: 12px;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+input, textarea, select{
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+select {
+    background-color: #ffd195;
+}

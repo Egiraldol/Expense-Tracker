@@ -1,0 +1,13 @@
+.totalExpenses {
+  background-color: #ffd195;
+  border-radius: 8px;
+  width: 20%;
+  height: auto;
+  padding: 12px 12px;
+  margin: 12px;
+  margin-bottom: 2%;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+

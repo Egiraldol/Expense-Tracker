@@ -1,0 +1,10 @@
+body {
+  font-family: "Lucida Console", "Courier New", monospace;
+  margin: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
