@@ -3,6 +3,7 @@ import ExpenseForm from "../components/expenses/ExpenseForm";
 import ExpenseList from "../components/expenses/ExpensesList";
 import { createExpense, updateExpense, deleteExpense, getExpenses, getTotalExpenses } from "../services/expenses.api";
 import TotalExpenses from "../components/expenses/TotalExpenses";
+import "./ExpensesPage.css"
 
 export default function ExpensesPage() {
     const [expenses, setExpenses] = useState([]);
@@ -70,18 +71,26 @@ export default function ExpensesPage() {
     }, []);
 
     return (
-        <>
-            <ExpenseForm onAddExpense={handleAddExpense}/>
-            <ExpenseList 
-                expenses={expenses}
-                editingId={editingId}
-                onDelete={handleDeleteExpense}
-                onEdit={handleEdit}
-                onCancel={handleCancel}
-                onUpdate={handleUpdate}
-            />
-            <TotalExpenses total={totalExpenses}/>
-        </>     
+        <div className="grid-container">
+            <div className="form">
+                <ExpenseForm onAddExpense={handleAddExpense}/>
+            </div>
+
+            <div className="list">
+                <ExpenseList 
+                    expenses={expenses}
+                    editingId={editingId}
+                    onDelete={handleDeleteExpense}
+                    onEdit={handleEdit}
+                    onCancel={handleCancel}
+                    onUpdate={handleUpdate}
+                />
+            </div>
+
+            <div className="total">
+                <TotalExpenses total={totalExpenses}/>
+            </div>
+        </div>     
     );
 }
 

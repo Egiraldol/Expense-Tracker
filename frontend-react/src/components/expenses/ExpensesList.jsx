@@ -1,4 +1,5 @@
 import ExpenseItem from "./ExpenseItem";
+import "./ExpensesList.css";
 
 export default function ExpenseList({
     expenses,
@@ -9,18 +10,20 @@ export default function ExpenseList({
     onUpdate
 }) {
     return (
-        <>
-            {expenses.map(expense => (
-                <ExpenseItem
-                    key={expense.id}
-                    expense={expense}
-                    isEditing={expense.id === editingId}
-                    onDelete={onDelete}
-                    onEdit={onEdit}
-                    onCancel={onCancel}
-                    onUpdate={onUpdate}
-                />
-            ))}
-        </>
+        <div className="center">
+            <div className="expenseList">
+                {expenses.map(expense => (
+                    <ExpenseItem
+                        key={expense.id}
+                        expense={expense}
+                        isEditing={expense.id === editingId}
+                        onDelete={onDelete}
+                        onEdit={onEdit}
+                        onCancel={onCancel}
+                        onUpdate={onUpdate}
+                    />
+                ))}
+            </div>
+        </div>
     );
 }
