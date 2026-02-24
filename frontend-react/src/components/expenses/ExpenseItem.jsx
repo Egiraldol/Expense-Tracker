@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./ExpenseItem.css"
 
 export default function ExpenseItem({ 
     expense, 
@@ -62,7 +63,7 @@ export default function ExpenseItem({
     }
     
     return (
-        <div>
+        <div className="expenseItem">
             <p>{expense.amount}</p>
             <p>{expense.category}</p>
             <p>{expense.description}</p>

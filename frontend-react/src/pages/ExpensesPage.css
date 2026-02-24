@@ -1,0 +1,15 @@
+.form { grid-area: form; }
+.list { grid-area: list; }
+.total { grid-area: total; }
+
+.grid-container {
+    display: grid;
+    grid-auto-columns: 50%;
+    grid:
+    'form list' auto
+    'form list' auto
+    'total list' 20%
+    / 50% 50%;
+    grid-gap: 10px;
+    padding: 10px;
+}
