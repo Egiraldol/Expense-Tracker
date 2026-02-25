@@ -68,14 +68,16 @@ export default function ExpenseItem({
             <p>{expense.category}</p>
             <p>{expense.description}</p>
             <p>{expense.date}</p>
+            
+            <div className="expenseActions">
+                <button onClick={() => onEdit(expense.id)}>
+                    <i className="fa-solid fa-pen"></i>
+                </button>
 
-            <button onClick={() => onEdit(expense.id)}>
-                <i className="fa-solid fa-pen"></i>
-            </button>
-
-            <button onClick={() => onDelete(expense.id)}>
-                <i className="fa-solid fa-trash-can"></i>
-            </button>
+                <button onClick={() => onDelete(expense.id)}>
+                    <i className="fa-solid fa-trash-can"></i>
+                </button>
+            </div>
         </div>
     );
 }
