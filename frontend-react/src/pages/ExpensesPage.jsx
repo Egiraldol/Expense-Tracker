@@ -71,7 +71,7 @@ export default function ExpensesPage() {
     }, []);
 
     return (
-        <div className="grid-container">
+        <div className="expensesPage">
             <div className="form">
                 <ExpenseForm onAddExpense={handleAddExpense}/>
             </div>
