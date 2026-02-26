@@ -2,7 +2,7 @@
 .list { grid-area: list; }
 .total { grid-area: total; }
 
-.grid-container {
+.expensesPage {
     display: grid;
     grid-auto-columns: 50%;
     grid:
@@ -11,5 +11,6 @@
     'total list' 20%
     / 50% 50%;
     grid-gap: 10px;
-    padding: 10px;
+    padding-left: 4%;
+    padding-right: 4%;
 }
