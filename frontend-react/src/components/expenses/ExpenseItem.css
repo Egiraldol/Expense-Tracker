@@ -1,5 +1,5 @@
 .expenseItem {
-    background-color: #ffffff;
+    background-color: var(--base-color);
     border-radius: 8px;
     width: 90%;
     height: 50%;

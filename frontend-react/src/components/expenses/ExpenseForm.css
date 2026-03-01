@@ -1,5 +1,5 @@
 .expenseForm {
-    background-color: #ffffff;
+    background-color: var(--base-color);
     border-radius: 8px;
     width: 50%;
     height: 100%;
@@ -19,5 +19,5 @@ input, textarea, select{
 }
 
 select {
-    background-color: #ffd195;
+    background-color: var(--accent-color);
 }

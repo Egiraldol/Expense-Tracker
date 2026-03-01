@@ -1,5 +1,5 @@
 .totalExpenses {
-  background-color: #ffd195;
+  background-color: var(--accent-color);
   border-radius: 8px;
   width: 40%;
   height: auto;

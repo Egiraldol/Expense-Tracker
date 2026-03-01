@@ -1,5 +1,5 @@
 .expenseList {  
-    background-color: #ffd195;
+    background-color: var(--accent-color);
     border-radius: 8px;
     width: 90%;
     height: auto;

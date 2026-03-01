@@ -1,5 +1,5 @@
 header {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--base-color);
     width: 100%;
     height: auto;
     padding: 12px;

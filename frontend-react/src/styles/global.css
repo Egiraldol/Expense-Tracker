@@ -1,3 +1,8 @@
+:root {
+  --base-color: #ffffff;
+  --accent-color: #ffd195;
+}
+
 body {
   font-family: "Lucida Console", "Courier New", monospace;
   margin: 0;
