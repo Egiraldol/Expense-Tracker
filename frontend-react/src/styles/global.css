@@ -1,10 +1,21 @@
 :root {
   --base-color: #ffffff;
-  --accent-color: #ffd195;
+  --base-variant: #e0e0e0;
+  --accent-color: #ffb85c;
+  --font-color: #000000;
+}
+
+.darkmode {
+  --base-color: #242424;
+  --base-variant: #121212;
+  --accent-color: #bf6c00;
+  --font-color: #ffffff;
 }
 
 body {
+  background-color: var(--base-color);
   font-family: "Lucida Console", "Courier New", monospace;
+  color: var(--font-color);
   margin: 0;
 }
 

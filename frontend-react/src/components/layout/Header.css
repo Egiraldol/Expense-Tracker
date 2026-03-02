@@ -1,5 +1,5 @@
 header {
-    background-color: var(--base-color);
+    background-color: var(--base-variant);
     width: 100%;
     height: auto;
     padding: 12px;
@@ -8,4 +8,7 @@ header {
     margin-bottom: 2%;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    display: grid;
+    grid-template-columns: 90% 10%;
 }
