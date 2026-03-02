@@ -2,13 +2,17 @@ import { useState, useEffect } from "react";
 import "./ThemeSwitch.css";
 
 export function ThemeToggle() {
-    const [isDark, setIsDark] = useState(false);
+    const [isDark, setIsDark] = useState(() => {
+        return localStorage.getItem("theme") === "dark";
+    });
 
     useEffect(() => {
         if (isDark) {
-        document.body.classList.add("darkmode");
+            document.body.classList.add("darkmode");
+            localStorage.setItem("theme", "dark");
         } else {
-        document.body.classList.remove("darkmode");
+            document.body.classList.remove("darkmode");
+            localStorage.setItem("theme", "light");
         }
     }, [isDark]);
 
