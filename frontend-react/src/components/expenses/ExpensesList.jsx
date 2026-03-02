@@ -12,6 +12,7 @@ export default function ExpenseList({
     return (
         <div className="center">
             <div className="expenseList">
+                <h2>Expenses</h2>
                 {expenses.map(expense => (
                     <ExpenseItem
                         key={expense.id}

@@ -38,7 +38,7 @@ export default function ExpenseForm({ onAddExpense }) {
     return (
         <div className="center">
             <form onSubmit={handleSubmit} className="expenseForm">
-                <h4>New expense</h4>
+                <h2>New expense</h2>
                 <input type="number" id="amount" name="amount" value={formData.amount} placeholder="amount" required onChange={handleChange}></input>
                 <select type="text" id="category" name="category" value={formData.category} required onChange={handleChange}>
                     <option value="" disabled>Select category</option>
