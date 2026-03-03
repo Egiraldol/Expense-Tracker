@@ -3,11 +3,19 @@
     border-radius: 8px;
     width: 50%;
     height: 100%;
-    padding: 12px 12px;
+    padding: 20px;
     margin: 12px;
     justify-content: space-between;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.btn-submit{
+    border-radius: 4px;
+    width: 20%;
+    height: auto;
+    margin-top: 4px;
+    padding: 8px;
 }
 
 input, textarea, select{

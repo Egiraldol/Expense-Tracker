@@ -36,7 +36,7 @@ export default function ExpenseItem({
 
     if (isEditing) {
         return (
-            <div>
+            <div className={`expenseItem ${isEditing ? "editing" : ""}`}>
                 <input type="number" id="amount" name="amount" value={formData.amount} onChange={handleChange}></input>
                 <select type="text" id="category" name="category" value={formData.category} onChange={handleChange}>
                     <option value="" disabled>Select category</option>
@@ -50,14 +50,16 @@ export default function ExpenseItem({
                 </select>
                 <textarea type="text" id="description" name="description" value={formData.description} onChange={handleChange}></textarea>
                 <input type="date" id="date" name="date" value={formData.date} onChange={handleChange}></input>
+                
+                <div className="expenseActions">
+                    <button onClick={() => onUpdate(expense.id, formData)}>
+                        <i className="fa-regular fa-circle-check"></i>
+                    </button>
 
-                <button onClick={() => onUpdate(expense.id, formData)}>
-                    <i className="fa-regular fa-circle-check"></i>
-                </button>
-
-                <button onClick={() => onCancel()}>
-                    <i className="fa-regular fa-circle-xmark"></i>
-                </button>
+                    <button onClick={() => onCancel()}>
+                        <i className="fa-regular fa-circle-xmark"></i>
+                    </button>
+                </div>
             </div>
         );
     }
