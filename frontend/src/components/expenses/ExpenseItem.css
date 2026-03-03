@@ -2,7 +2,7 @@
     background-color: var(--base-color);
     border-radius: 8px;
     width: 90%;
-    height: 50%;
+    height: 60px;
     padding: 12px 12px;
     margin: 16px;
 
@@ -12,4 +12,22 @@
     
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.expenseItem select{
+    background-color: var(--base-color);
+}
+
+.expenseItem.editing input,
+.expenseItem.editing textarea,
+.expenseItem.editing select {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
