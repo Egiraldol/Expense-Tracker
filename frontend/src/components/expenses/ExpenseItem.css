@@ -2,16 +2,27 @@
     background-color: var(--base-color);
     border-radius: 8px;
     width: 90%;
-    height: 60px;
-    padding: 12px 12px;
+    height: auto;
+    padding: 12px 4px;
     margin: 16px;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1024px){
+    .expenseItem {
+        width: 90%;
+        height: 60px;
+        padding: 12px 12px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
+    }
 }
 
 .expenseItem select{

@@ -3,14 +3,22 @@
 .total { grid-area: total; }
 
 .expensesPage {
-    display: grid;
-    grid-auto-columns: 50%;
-    grid:
-    'form list' auto
-    'form list' auto
-    'total list' 20%
-    / 50% 50%;
-    grid-gap: 10px;
-    padding-left: 6%;
-    padding-right: 12%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+    .expensesPage {
+        display: grid;
+        grid-auto-columns: 50%;
+        grid:
+        'form list' auto
+        'form list' auto
+        'total list' 20%
+        / 40% 60%;
+        grid-gap: 10px;
+        padding-left: 12%;
+        padding-right: 8%;
+    }
 }

@@ -10,5 +10,13 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     display: grid;
-    grid-template-columns: 90% 10%;
+    grid-template-columns: 80% 20%;
+}
+
+
+@media (min-width: 1024px){
+    header {  
+        display: grid;
+        grid-template-columns: 90% 10%;
+    }
 }

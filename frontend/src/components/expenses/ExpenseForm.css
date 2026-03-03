@@ -1,8 +1,8 @@
 .expenseForm {
     background-color: var(--base-variant);
     border-radius: 8px;
-    width: 50%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     padding: 20px;
     margin: 12px;
     justify-content: space-between;
@@ -12,7 +12,7 @@
 
 .btn-submit{
     border-radius: 4px;
-    width: 20%;
+    width: auto;
     height: auto;
     margin-top: 4px;
     padding: 8px;
