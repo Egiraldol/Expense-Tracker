@@ -30,3 +30,9 @@ input, textarea, select{
     display: inline-block;
     border-radius: 4px;
 }
+
+textarea {
+    resize: none;
+    height: 40px;
+    overflow-y: auto;
+}

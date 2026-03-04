@@ -69,10 +69,10 @@ export default function ExpenseItem({
     return (
         <div className="center">
             <div className="expenseItem">
-                <p>{expense.amount}</p>
-                <p>{expense.category}</p>
-                <p>{expense.description}</p>
-                <p>{expense.date}</p>
+                <p id="amount">{expense.amount}</p>
+                <p id="category">{expense.category}</p>
+                <p id="description">{expense.description}</p>
+                <p id="date">{expense.date}</p>
                 
                 <div className="expenseActions">
                     <button onClick={() => onEdit(expense.id)}>
