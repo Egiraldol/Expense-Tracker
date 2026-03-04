@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./ExpenseItem.css"
+import { formatCurrency } from "../../utils/formatCurrency";
 
 export default function ExpenseItem({ 
     expense, 
@@ -38,7 +39,7 @@ export default function ExpenseItem({
         return (
             <div className="center">
                 <div className={`expenseItem ${isEditing ? "editing" : ""}`}>
-                    <input type="number" id="amount" name="amount" value={formData.amount} onChange={handleChange}></input>
+                    <input type="number" step="100" min="0" id="amount" name="amount" value={formData.amount} onChange={handleChange}></input>
                     <select type="text" id="category" name="category" value={formData.category} onChange={handleChange}>
                         <option value="" disabled>Select category</option>
                         <option value="Food">Food</option>
@@ -69,7 +70,7 @@ export default function ExpenseItem({
     return (
         <div className="center">
             <div className="expenseItem">
-                <p id="amount">{expense.amount}</p>
+                <p id="amount">{formatCurrency(expense.amount)}</p>
                 <p id="category">{expense.category}</p>
                 <p id="description">{expense.description}</p>
                 <p id="date">{expense.date}</p>
