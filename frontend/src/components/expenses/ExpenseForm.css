@@ -11,12 +11,16 @@
 }
 
 .btn-submit{
-    background-color: var(--accent-color);
+    background-color: var(--base-color);
     border-radius: 4px;
     width: auto;
     height: auto;
     margin-top: 12px;
     padding: 0.75rem;
+
+    font-size: medium;
+    font-weight: bold;
+    color: inherit;
 }
 
 input, textarea, select{
