@@ -20,9 +20,11 @@ export default function ExpenseForm({ onAddExpense }) {
     function handleSubmit(e) {
         e.preventDefault();
 
+        const today = new Date().toISOString().split("T")[0];
         const formattedData = {
             ...formData,
-            amount: Number(formData.amount)
+            amount: Number(formData.amount),
+            date: formData.date || today
         };
 
         onAddExpense(formattedData);
@@ -51,7 +53,7 @@ export default function ExpenseForm({ onAddExpense }) {
                     <option value="Others">Others</option>
                 </select>
                 <textarea type="text" id="description" name="description" value={formData.description} placeholder="description" onChange={handleChange}></textarea>
-                <input type="date" id="date" name="date" value={formData.date} placeholder="date" required onChange={handleChange}></input>
+                <input type="date" id="date" name="date" value={formData.date} placeholder="date" onChange={handleChange}></input>
                 <button className="btn-submit" id="submit" name="submit">Submit</button>
             </form>
         </div>
