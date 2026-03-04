@@ -3,7 +3,7 @@
     border-radius: 8px;
     width: 90%;
     height: 90%;
-    padding: 20px;
+    padding: 16px;
     margin: 12px;
     justify-content: space-between;
     text-align: center;
@@ -11,23 +11,22 @@
 }
 
 .btn-submit{
+    background-color: var(--accent-color);
     border-radius: 4px;
     width: auto;
     height: auto;
-    margin-top: 4px;
-    padding: 8px;
+    margin-top: 12px;
+    padding: 0.75rem;
 }
 
 input, textarea, select{
     background-color: var(--base-color);
     color: var(--font-color);
     margin: 8px 0;
+    font-size: medium;
+    height: 40px;
     width: 100%;
     box-sizing: border-box;
     display: inline-block;
     border-radius: 4px;
-}
-
-select {
-    background-color: var(--accent-color);
 }

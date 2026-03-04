@@ -1,18 +1,15 @@
 .expenseList {  
-    background-color: var(--accent-color);
+    background-color: var(--base-variant);
     border-radius: 8px;
     width: 90%;
     height: auto;
-    padding: 4px;
-    margin: 12px;
+    padding: 16px;
     justify-content: space-between;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-@media (min-width: 1024px){
-    .expenseList {  
-        width: 90%;
-    }
+.expenseList h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
 }

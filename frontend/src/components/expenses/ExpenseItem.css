@@ -3,8 +3,8 @@
     border-radius: 8px;
     width: 90%;
     height: auto;
-    padding: 12px 4px;
-    margin: 16px;
+    padding: 16px;
+    margin: 12px;
 
     display: flex;
     flex-direction: column;
@@ -14,31 +14,45 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 1024px){
-    .expenseItem {
-        width: 90%;
-        height: 60px;
-        padding: 12px 12px;
-
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
-    }
-}
-
-.expenseItem select{
-    background-color: var(--base-color);
+.expenseActions {
+    margin-bottom: 1rem;
 }
 
 .expenseItem.editing input,
 .expenseItem.editing textarea,
 .expenseItem.editing select {
-    appearance: none;
-    border: none;
-    outline: none;
-    background: transparent;
     font: inherit;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+    height: auto;
+    width: 60%;
+    padding: 12px;
+    margin: 16px;
     box-sizing: border-box;
+}
+
+@media (min-width: 1024px){
+    .expenseItem {
+        width: 90%;
+        height: 60px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
+    }
+
+    .expenseItem.editing input,
+    .expenseItem.editing textarea,
+    .expenseItem.editing select {
+        width: 90%;
+        height: 60px;
+        padding: 0;
+        margin: 0;
+
+        appearance: none;
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+
+    .expenseActions {
+        margin-bottom: 0;
+    }
 }

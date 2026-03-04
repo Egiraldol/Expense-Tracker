@@ -1,5 +1,5 @@
 header {
-    background-color: var(--base-variant);
+    background-color: var(--accent-color);
     width: 100%;
     height: auto;
     padding: 12px;
@@ -11,6 +11,10 @@ header {
 
     display: grid;
     grid-template-columns: 80% 20%;
+}
+
+.title {
+    font-size: 2rem;
 }
 
 
