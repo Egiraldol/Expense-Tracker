@@ -1,11 +1,11 @@
 .totalExpenses {
   background-color: var(--accent-color);
   border-radius: 8px;
-  width: 40%;
+  width: auto;
   height: auto;
-  padding: 12px 12px;
+  padding: 20px;
   margin: 12px;
-  margin-bottom: 2%;
+  margin-bottom: 2rem;
   justify-content: space-between;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
