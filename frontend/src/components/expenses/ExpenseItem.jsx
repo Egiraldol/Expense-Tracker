@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./ExpenseItem.css"
+import { formatCurrency } from "../../utils/formatCurrency";
 
 export default function ExpenseItem({ 
     expense, 
@@ -69,7 +70,7 @@ export default function ExpenseItem({
     return (
         <div className="center">
             <div className="expenseItem">
-                <p id="amount">{expense.amount}</p>
+                <p id="amount">{formatCurrency(expense.amount)}</p>
                 <p id="category">{expense.category}</p>
                 <p id="description">{expense.description}</p>
                 <p id="date">{expense.date}</p>
