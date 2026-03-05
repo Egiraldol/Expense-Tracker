@@ -2,7 +2,7 @@
     background-color: var(--base-variant);
     border-radius: 8px;
     width: 90%;
-    height: auto;
+    height: 100%;
     padding: 16px;
     justify-content: space-between;
     text-align: center;
@@ -12,4 +12,17 @@
 .expenseList h2 {
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .expenseList {
+        height: 75vh;
+        overflow-y: auto;
+       
+        mask-image: linear-gradient(
+            to bottom,
+            black 85%,
+            transparent 100%
+        ); 
+    }
 }

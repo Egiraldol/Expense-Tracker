@@ -13,9 +13,9 @@
         display: grid;
         grid-auto-columns: 50%;
         grid:
-        'form list' auto
-        'form list' auto
-        'total list' 20%
+        'form list' 60%
+        'form list' 10%
+        'total list' 30%
         / 40% 60%;
         grid-gap: 10px;
         padding-left: 12%;
