@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from models import Expense
-from schemas import ExpenseCreate, ExpenseResponse
+from schemas import ExpenseCreate, ExpenseUpdate, ExpenseResponse
 
 
 def create_expense(db: Session, expense: ExpenseCreate) -> Expense:
@@ -19,7 +19,7 @@ def create_expense(db: Session, expense: ExpenseCreate) -> Expense:
     return db_expense
 
 
-def update_expense(db: Session, expense_id: int, expense_data: ExpenseCreate) -> Expense | None:
+def update_expense(db: Session, expense_id: int, expense_data: ExpenseUpdate) -> Expense | None:
     db_expense = get_expense(db, expense_id)
 
     if db_expense is None:
@@ -61,7 +61,7 @@ def get_total_expense(db: Session) -> float:
 
 def delete_expense(db: Session, expense_id: int) -> bool:
     db_expense = get_expense(db, expense_id)
-    if db_expense is None:
+    if not db_expense:
         return False
     
     db.delete(db_expense)
