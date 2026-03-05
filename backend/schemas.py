@@ -29,7 +29,7 @@ class ExpenseUpdate(BaseModel):
     amount: Optional[float] = Field(None, gt=0)
     category: Optional[Category] = None
     description: Optional[str] = Field(None, max_length=200)
-    date: Optional[datetime.date] = None
+    date: Optional[date]
 
 
 class ExpenseResponse(ExpenseBase):

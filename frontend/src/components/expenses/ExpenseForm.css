@@ -2,9 +2,8 @@
     background-color: var(--base-variant);
     border-radius: 8px;
     width: 90%;
-    height: 90%;
+    height: 100%;
     padding: 16px;
-    margin: 12px;
     justify-content: space-between;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 

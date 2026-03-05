@@ -16,7 +16,7 @@
 
 .expenseActions{
     width: 90%;
-    height: 60px;
+    height: 20px;
 }
 
 .expenseItem p,
@@ -67,9 +67,5 @@
         background: transparent;
 
         text-align: center;
-    }
-
-    .expenseActions {
-        height: 20px;
     }
 }
