@@ -9,6 +9,15 @@ export default function ExpenseList({
     onCancel,
     onUpdate
 }) {
+    if (expenses.length === 0) {
+        return (
+            <div className="center">
+                <h3 className="emptyMessage">
+                    You have no expenses yet, but you can add some now
+                </h3>
+            </div>
+        )
+    }
     return (
         <div className="center">
             <div className="expenseList">
