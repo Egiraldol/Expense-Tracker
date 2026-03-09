@@ -9,6 +9,15 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.emptyMessage {
+    background-color: var(--base-variant);
+    border-radius: 8px;
+    width: 90%;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .expenseList h2 {
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
@@ -16,12 +25,13 @@
 
 @media (min-width: 1024px) {
     .expenseList {
-        height: 75vh;
+        height: 100%;
+        max-height: 75vh;
         overflow-y: auto;
        
         mask-image: linear-gradient(
             to bottom,
-            black 85%,
+            black 90%,
             transparent 100%
         ); 
     }
