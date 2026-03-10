@@ -22,7 +22,9 @@
     color: inherit;
 }
 
-input, textarea, select{
+.expenseForm input, 
+.expenseForm textarea, 
+.expenseForm select{
     background-color: var(--base-color);
     color: var(--font-color);
     margin: 8px 0;
