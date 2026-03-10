@@ -10,7 +10,7 @@ export default function ExpensesPage() {
     const [expenses, setExpenses] = useState([]);
     const [editingId, setEditingId] = useState(null);
     const [totalExpenses, setTotalExpenses] = useState(0);
-    const [filterMode, setFilterMode] = useState("all");
+    const [activeFilter, setActiveFilter] = useState("all");
     const [selectedMonth, setSelectedMonth] = useState("");
     const [dateRange, setDateRange] = useState({
         start: "",
@@ -18,22 +18,39 @@ export default function ExpensesPage() {
     });
 
     const filteredExpenses = expenses.filter(expense => {
-
         const expenseDate = new Date(expense.date);
+        const now = new Date();
 
-        if (filterMode === "all") {
-            return true;
+        if (activeFilter === "all") return true;
+
+        if (activeFilter === "thisMonth") {
+            return (
+            expenseDate.getMonth() === now.getMonth() &&
+            expenseDate.getFullYear() === now.getFullYear()
+            );
         }
 
-        if (filterMode === "range") {
+        if (activeFilter === "lastMonth") {
+            const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1);
+            return (
+            expenseDate.getMonth() === lastMonth.getMonth() &&
+            expenseDate.getFullYear() === lastMonth.getFullYear()
+            );
+        }
+
+        if (activeFilter === "last3Months") {
+            const threeMonthsAgo = new Date(now.getFullYear(), now.getMonth() - 3);
+            return expenseDate >= threeMonthsAgo;
+        }
+
+        if (activeFilter === "month") {
+            return expenseDate.toISOString().slice(0,7) === selectedMonth;
+        }
+
+        if (activeFilter === "range") {
             if (dateRange.start && expenseDate < new Date(dateRange.start)) return false;
             if (dateRange.end && expenseDate > new Date(dateRange.end)) return false;
             return true;
-        }
-
-        if (filterMode === "month") {
-            const expenseMonth = expenseDate.toISOString().slice(0,7);
-            return expenseMonth === selectedMonth;
         }
 
     });
@@ -114,8 +131,11 @@ export default function ExpensesPage() {
                 <DateFilter
                     dateRange={dateRange}
                     setDateRange={setDateRange}
-                    setFilterMode={setFilterMode}
                     setSelectedMonth={setSelectedMonth}
+                    activeFilter={activeFilter}
+                    setActiveFilter={setActiveFilter}
+                    expenses={expenses}
+                    filteredExpenses={filteredExpenses}
                 />
                 <ExpenseList 
                     expenses={filteredExpenses}

@@ -4,3 +4,21 @@
   align-items: center;
   margin: 12px;
 }
+
+.quickFilters button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.quickFilters button.active {
+  background: var(--accent-color);
+  color: white;
+}
+
+.filterInfo {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
