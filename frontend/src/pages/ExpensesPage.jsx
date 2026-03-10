@@ -3,12 +3,45 @@ import ExpenseForm from "../components/expenses/ExpenseForm";
 import ExpenseList from "../components/expenses/ExpensesList";
 import { createExpense, updateExpense, deleteExpense, getExpenses, getTotalExpenses } from "../services/expenses.api";
 import TotalExpenses from "../components/expenses/TotalExpenses";
+import { DateFilter } from "../components/expenses/DateFilter";
 import "./ExpensesPage.css"
 
 export default function ExpensesPage() {
     const [expenses, setExpenses] = useState([]);
     const [editingId, setEditingId] = useState(null);
     const [totalExpenses, setTotalExpenses] = useState(0);
+    const [filterMode, setFilterMode] = useState("all");
+    const [selectedMonth, setSelectedMonth] = useState("");
+    const [dateRange, setDateRange] = useState({
+        start: "",
+        end: ""
+    });
+
+    const filteredExpenses = expenses.filter(expense => {
+
+        const expenseDate = new Date(expense.date);
+
+        if (filterMode === "all") {
+            return true;
+        }
+
+        if (filterMode === "range") {
+            if (dateRange.start && expenseDate < new Date(dateRange.start)) return false;
+            if (dateRange.end && expenseDate > new Date(dateRange.end)) return false;
+            return true;
+        }
+
+        if (filterMode === "month") {
+            const expenseMonth = expenseDate.toISOString().slice(0,7);
+            return expenseMonth === selectedMonth;
+        }
+
+    });
+
+    const filteredTotal = filteredExpenses.reduce(
+        (sum, expense) => sum + expense.amount,
+        0
+    );
 
     async function handleAddExpense(data) {
         const newExpense = await createExpense(data);
@@ -28,6 +61,7 @@ export default function ExpensesPage() {
             console.error(error);
         }
     }
+
     async function handleUpdate(id, updatedData) {
         try {
             const updatedExpense = await updateExpense(id, updatedData);
@@ -77,8 +111,14 @@ export default function ExpensesPage() {
             </div>
 
             <div className="list">
+                <DateFilter
+                    dateRange={dateRange}
+                    setDateRange={setDateRange}
+                    setFilterMode={setFilterMode}
+                    setSelectedMonth={setSelectedMonth}
+                />
                 <ExpenseList 
-                    expenses={expenses}
+                    expenses={filteredExpenses}
                     editingId={editingId}
                     onDelete={handleDeleteExpense}
                     onEdit={handleEdit}
@@ -88,7 +128,7 @@ export default function ExpensesPage() {
             </div>
 
             <div className="total">
-                <TotalExpenses total={totalExpenses}/>
+                <TotalExpenses total={filteredTotal}/>
             </div>
         </div>     
     );
