@@ -55,6 +55,10 @@ export default function ExpensesPage() {
 
     });
 
+    const sortedExpenses = filteredExpenses.sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+    );
+
     const filteredTotal = filteredExpenses.reduce(
         (sum, expense) => sum + expense.amount,
         0
@@ -138,7 +142,7 @@ export default function ExpensesPage() {
                     filteredExpenses={filteredExpenses}
                 />
                 <ExpenseList 
-                    expenses={filteredExpenses}
+                    expenses={sortedExpenses}
                     editingId={editingId}
                     onDelete={handleDeleteExpense}
                     onEdit={handleEdit}
