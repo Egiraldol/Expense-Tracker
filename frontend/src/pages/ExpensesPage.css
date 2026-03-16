@@ -8,7 +8,34 @@
   gap: 20px;
 }
 
+.mobileAddButton {
+    width: 50%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.expenseFormWrapper {
+    display: none;
+}
+
+.expenseFormWrapper.visible {
+    display: block;
+}
+
 @media (min-width: 1024px) {
+    .mobileAddButton {
+        display: none;
+    }
+
+    .expenseFormWrapper {
+        display: block;
+    }
+
     .expensesPage {
         display: grid;
         grid-auto-columns: 50%;

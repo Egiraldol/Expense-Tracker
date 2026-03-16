@@ -16,6 +16,7 @@ export default function ExpensesPage() {
         start: "",
         end: ""
     });
+    const [showForm, setShowForm] = useState(false);
 
     const filteredExpenses = expenses.filter(expense => {
         const expenseDate = new Date(expense.date);
@@ -127,8 +128,14 @@ export default function ExpensesPage() {
 
     return (
         <div className="expensesPage">
-            <div className="form">
-                <ExpenseForm onAddExpense={handleAddExpense}/>
+            <button className="mobileAddButton" onClick={() => setShowForm(!showForm)}>
+                New Expense
+            </button>
+
+            <div className={`expenseFormWrapper ${showForm ? "visible" : ""}`}>
+                <div className="form">
+                    <ExpenseForm onAddExpense={handleAddExpense}/>
+                </div>
             </div>
 
             <div className="list">
