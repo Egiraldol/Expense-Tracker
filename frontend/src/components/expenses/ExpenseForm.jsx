@@ -40,21 +40,37 @@ export default function ExpenseForm({ onAddExpense }) {
     return (
         <div className="center">
             <form onSubmit={handleSubmit} className="expenseForm">
-                <h2>New expense</h2>
-                <input type="number" step="100" min="0" id="amount" name="amount" value={formData.amount} placeholder="amount" required onChange={handleChange}></input>
-                <select type="text" id="category" name="category" value={formData.category} required onChange={handleChange}>
-                    <option value="" disabled>Select category</option>
-                    <option value="Food">Food</option>
-                    <option value="Transport">Transport</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="Services">Services</option>
-                    <option value="Health">Health</option>
-                    <option value="Shopping">Shopping</option>
-                    <option value="Others">Others</option>
-                </select>
-                <textarea type="text" id="description" name="description" value={formData.description} placeholder="description" onChange={handleChange}></textarea>
-                <input type="date" id="date" name="date" value={formData.date} placeholder="date" onChange={handleChange}></input>
-                <button className="btn-submit" id="submit" name="submit">Submit</button>
+                <h2 className="formTitle">Add new expense</h2>
+                <div className="formGrid">
+                    <div className="formGroup">
+                        <input className="amount" type="number" step="100" min="0" id="amount" name="amount" value={formData.amount} placeholder="amount" required onChange={handleChange}></input>
+                    </div>
+
+                    <div className="formGroup">
+                        <select className="category" type="text" id="category" name="category" value={formData.category} required onChange={handleChange}>
+                            <option value="" disabled>Select category</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Services">Services</option>
+                            <option value="Health">Health</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>    
+
+                    <div className="formGroup">    
+                        <textarea className="description" type="text" id="description" name="description" value={formData.description} placeholder="description" onChange={handleChange}></textarea>
+                    </div> 
+
+                    <div className="formGroup">    
+                        <input className="date" type="date" id="date" name="date" value={formData.date} placeholder="date" onChange={handleChange}></input>
+                    </div> 
+                
+                    <div className="formGroup">    
+                        <button className="btn-submit" id="submit" name="submit">Add expense</button>
+                    </div>
+                </div>
             </form>
         </div>
 
