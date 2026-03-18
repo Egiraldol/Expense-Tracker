@@ -13,7 +13,7 @@
 .expenseForm textarea, 
 .expenseForm select, 
 .btn-submit {
-    background-color: var(--base-color);
+    background-color: var(--base-variant);
     color: var(--font-color);
     margin: 8px 0;
     font-size: medium;
