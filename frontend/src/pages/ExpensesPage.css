@@ -37,15 +37,7 @@
     }
 
     .expensesPage {
-        display: grid;
-        grid-auto-columns: 50%;
-        grid:
-        'form list' 60%
-        'form list' 10%
-        'total list' 30%
-        / 40% 60%;
+        display: flex;
         grid-gap: 10px;
-        padding-left: 12%;
-        padding-right: 8%;
     }
 }

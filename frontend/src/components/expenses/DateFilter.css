@@ -1,8 +1,12 @@
 .dateFilter {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 12px;
+    background-color: var(--base-variant);
+    border-radius: 8px;
+    width: 90%;
+    height: 100%;
+    padding: 16px;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .quickFilters {
@@ -29,6 +33,7 @@
 }
 
 .filterInfo {
+    width: 90%;
     font-size: 0.9rem;
     opacity: 0.7;
 }
